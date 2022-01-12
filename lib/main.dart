@@ -62,7 +62,7 @@ class MyAppFirst extends StatelessWidget {
                 // Define the default `TextTheme`. Use this to specify the default
                 // text styling for headlines, titles, bodies of text, and more.
                 textTheme: const TextTheme(
-                  headline1: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold, color: Colors.black),
+                  headline1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200, color: Colors.black),
                   headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
                   // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
                 ),
@@ -86,7 +86,7 @@ class MyAppFirst extends StatelessWidget {
                 // Define the default `TextTheme`. Use this to specify the default
                 // text styling for headlines, titles, bodies of text, and more.
                 textTheme: const TextTheme(
-                  headline1: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                  headline1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200, color: Colors.white),
                   headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
                   // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
                 ),
@@ -169,7 +169,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       //  extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text("Blossom"),
+        title:  Text("Blossom", style: Theme.of(context).textTheme.headline1,),
+
       ),
       body: SingleChildScrollView(
         child: Column(
