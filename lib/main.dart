@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:trial0106/globals/globals.dart';
 
 import 'package:trial0106/widgets/app_settings.dart';
 import 'package:trial0106/widgets/history.dart';
@@ -8,6 +9,9 @@ import 'package:trial0106/widgets/mood/slider_widget.dart';
 import 'package:trial0106/widgets/mood/log_mood_screen_one.dart';
 import 'package:trial0106/widgets/mood/log_mood_screen_two.dart';
 import 'package:hive/hive.dart';
+import 'package:provider/provider.dart';
+
+
 
 
 
@@ -26,42 +30,58 @@ class MyAppFirst extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Blossom',
-      initialRoute: '/',
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => const MyApp(),
-
-        //to multiselect mood log
-
-        '/logmood1': (context) => const LogMoodScreenOne(),
-
-        '/logmood2': (context) => const LogMoodScreenTwo(),
-      },
-      theme: ThemeData(
-        // Define the default brightness and colors.
-          brightness: Brightness.light,
-          primaryColor: const Color(0xFF151026),
-
-          // Define the default font family.
-          fontFamily: 'Comfortaa',
 
 
-          // Define the default `TextTheme`. Use this to specify the default
-          // text styling for headlines, titles, bodies of text, and more.
-          textTheme: const TextTheme(
-            headline1: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
-            headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
-           // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
-          ),
-          appBarTheme: AppBarTheme(
-            // color: Colors.transparent,
-            elevation: 1,
 
-            //TODO: if ever needed, very very pretty color!!!!!!!!!!!!
-            color: const Color(0xFF151026),
-          )),
+    return ChangeNotifierProvider<ThemeModel>(
+      create: (_) => currentModel,
+      child: Consumer<ThemeModel>(
+        builder: (_, currentModel, __) {
+          return MaterialApp(
+            title: 'Blossom',
+            initialRoute: '/',
+            routes: {
+              // When navigating to the "/" route, build the FirstScreen widget.
+              '/': (context) => const MyApp(),
+
+              //to multiselect mood log
+
+              '/logmood1': (context) => const LogMoodScreenOne(),
+
+              '/logmood2': (context) => const LogMoodScreenTwo(),
+            },
+            theme: ThemeData(
+              // Define the default brightness and colors.
+                brightness: Brightness.light,
+                primaryColor: const Color(0xFF151026),
+
+                // Define the default font family.
+                fontFamily: 'Comfortaa',
+
+
+                // Define the default `TextTheme`. Use this to specify the default
+                // text styling for headlines, titles, bodies of text, and more.
+                textTheme: const TextTheme(
+                  headline1: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                  headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
+                  // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
+                ),
+                appBarTheme: AppBarTheme(
+                  // color: Colors.transparent,
+                  elevation: 1,
+
+                  //TODO: if ever needed, very very pretty color!!!!!!!!!!!!
+                  color: const Color(0xFF151026),
+                )),
+
+            darkTheme: ThemeData.dark(), // Provide dark theme.
+            themeMode: currentModel.mode,
+            // =model.mode
+
+
+          );
+        },
+      ),
     );
   }
 }
@@ -117,6 +137,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _selectedIndex = index;
     });}
+
 
 
   // Map<SecondaryMoods, int> allMoodLogs = {};
@@ -180,3 +201,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+class ThemeModel with ChangeNotifier {
+  ThemeMode _mode;
+  ThemeMode get mode => _mode;
+  ThemeModel({ThemeMode mode = ThemeMode.light}) : _mode = mode;
+
+  void toggleMode() {
+    _mode = _mode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+}
+

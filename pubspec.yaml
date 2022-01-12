@@ -50,6 +50,9 @@ dependencies:
   #carousel
   carousel_slider: ^4.0.0
 
+  #change theme
+  provider: ^6.0.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

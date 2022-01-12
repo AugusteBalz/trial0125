@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:trial0106/globals/globals.dart';
+
+import 'package:provider/provider.dart';
 
 
 class AppSettings extends StatefulWidget {
@@ -54,6 +57,8 @@ class _AppSettingsState extends State<AppSettings> {
                   //curve: Curves.linear, // animate must be set to true when using custom curve
                   onToggle: (index) {
                     print('switched to: $index');
+                     currentModel.toggleMode();
+
                   },
                 ),
               ],
