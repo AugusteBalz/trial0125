@@ -183,43 +183,63 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+
+      Theme(
+        data: Theme.of(context).copyWith(
+          // sets the background color of the `BottomNavigationBar`
+           // canvasColor: Colors.green,
+            // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+            primaryColor: Colors.red,
+            textTheme: Theme
+                .of(context)
+                .textTheme
+                .copyWith(caption: new TextStyle(color: Colors.yellow))), // sets the inactive color of the `BottomNavigationBar`
+        child: new BottomNavigationBar(
 
 
-        backgroundColor: Colors.pink,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.bubble_chart_rounded),
-            label: 'Home',
-            backgroundColor: Colors.white,
+         // backgroundColor: Colors.pink,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bubble_chart_rounded),
+              label: 'Home',
+            //  backgroundColor: Colors.white,
 
 
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today_rounded),
-            label: 'History',
-            backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today_rounded),
+              label: 'History',
+             // backgroundColor: Colors.white,
 
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart),
-            label: 'Graphs',
-            backgroundColor: Colors.white,
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.show_chart),
+              label: 'Graphs',
+             // backgroundColor: Colors.white,
 
-          ),
+            ),
 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.miscellaneous_services_rounded),
-            label: 'Settings',
-            backgroundColor: Colors.white,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.miscellaneous_services_rounded),
+              label: 'Settings',
+             // backgroundColor: Colors.white,
 
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
-        onTap: _onItemTapped,
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.purple,
+          unselectedItemColor: Colors.grey,
+          onTap: _onItemTapped,
+        ),
       ),
+
+
+
+
+
+
+
     );
   }
 }
