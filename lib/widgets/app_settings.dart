@@ -15,7 +15,7 @@ class _AppSettingsState extends State<AppSettings> {
   @override
   Widget build(BuildContext context) {
 
-   int previousIndex = 0;
+
     return Container(
 
       padding: const EdgeInsets.all(10),
@@ -44,7 +44,7 @@ class _AppSettingsState extends State<AppSettings> {
                   activeFgColor: Colors.white,
                   inactiveBgColor: Colors.grey,
                   inactiveFgColor: Colors.white,
-                  totalSwitches: 2,
+                  totalSwitches: 1,
                   icons:  const [
 
                     Icons.wb_sunny_rounded,
@@ -59,6 +59,7 @@ class _AppSettingsState extends State<AppSettings> {
                   onToggle: (index) {
                     print('switched to: $index');
 
+                    //TODO: fix theming
 
                      if(previousIndex!=index){
                        currentModel.toggleMode();

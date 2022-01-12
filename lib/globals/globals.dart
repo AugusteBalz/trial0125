@@ -9,6 +9,9 @@ import 'package:trial0106/models/moods.dart';
 import 'package:trial0106/models/one_mood.dart';
 import 'package:trial0106/globals/constants_of_mood.dart';
 
+
+int previousIndex = 0; //for theme toggling
+
 ThemeModel currentModel = ThemeModel();
 
 
@@ -35,7 +38,7 @@ TextTheme textTextTheme = const TextTheme(
   // for smallest emotions appbar things
   bodyText1: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400),
 
-  //for biger sub-emotions
+  //for bigger sub-emotions
   bodyText2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w200),
 
 
