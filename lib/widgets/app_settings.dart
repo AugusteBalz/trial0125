@@ -44,7 +44,7 @@ class _AppSettingsState extends State<AppSettings> {
                   activeFgColor: Colors.white,
                   inactiveBgColor: Colors.grey,
                   inactiveFgColor: Colors.white,
-                  totalSwitches: 1,
+                  totalSwitches: 2,
                   icons:  const [
 
                     Icons.wb_sunny_rounded,
