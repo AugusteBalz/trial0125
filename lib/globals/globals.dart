@@ -1,12 +1,12 @@
 library mood_as_classes.globals;
 
 import 'package:flutter/material.dart';
-import 'package:trial0106/assets/colors_of_mood.dart';
+import 'package:trial0106/globals/colors_of_mood.dart';
 import 'package:trial0106/models/blueprint_mood.dart';
 import 'package:trial0106/models/mood_entries.dart';
 import 'package:trial0106/models/moods.dart';
 import 'package:trial0106/models/one_mood.dart';
-import 'package:trial0106/assets/constants_of_mood.dart';
+import 'package:trial0106/globals/constants_of_mood.dart';
 
 
 

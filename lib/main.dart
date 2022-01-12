@@ -45,14 +45,15 @@ class MyAppFirst extends StatelessWidget {
           primaryColor: const Color(0xFF151026),
 
           // Define the default font family.
-          fontFamily: 'Raleway',
+          fontFamily: 'Comfortaa',
+
 
           // Define the default `TextTheme`. Use this to specify the default
           // text styling for headlines, titles, bodies of text, and more.
           textTheme: const TextTheme(
             headline1: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
             headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
-            bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Open sans'),
+           // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
           ),
           appBarTheme: AppBarTheme(
             // color: Colors.transparent,

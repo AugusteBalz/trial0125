@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trial0106/assets/colors_of_mood.dart';
+import 'package:trial0106/globals/colors_of_mood.dart';
 import 'package:trial0106/models/blueprint_mood.dart';
 import 'package:trial0106/models/moods.dart';
 
