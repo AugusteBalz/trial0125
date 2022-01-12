@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-
+//TODO: if ever needed, very very pretty color!!!!!!!!!!!!
+// color: Color(0xFF151026),
 
 
 Color angryMoodColor = Colors.red;

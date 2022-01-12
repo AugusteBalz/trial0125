@@ -53,6 +53,30 @@ class MyAppFirst extends StatelessWidget {
             theme: ThemeData(
               // Define the default brightness and colors.
                 brightness: Brightness.light,
+                primaryColor: Colors.deepPurple,
+
+                // Define the default font family.
+                fontFamily: 'Comfortaa',
+
+
+                // Define the default `TextTheme`. Use this to specify the default
+                // text styling for headlines, titles, bodies of text, and more.
+                textTheme: const TextTheme(
+                  headline1: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold, color: Colors.black),
+                  headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
+                  // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
+                ),
+                appBarTheme: const AppBarTheme(
+                  brightness: Brightness.light,
+
+                  systemOverlayStyle: SystemUiOverlayStyle.dark,
+                  color: Colors.white,
+                  elevation: 1,
+
+                )),
+
+            darkTheme: ThemeData(// Define the default brightness and colors.
+                brightness: Brightness.dark,
                 primaryColor: const Color(0xFF151026),
 
                 // Define the default font family.
@@ -66,15 +90,11 @@ class MyAppFirst extends StatelessWidget {
                   headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
                   // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
                 ),
-                appBarTheme: AppBarTheme(
-                  // color: Colors.transparent,
+                appBarTheme: const AppBarTheme(
+
                   elevation: 1,
 
-                  //TODO: if ever needed, very very pretty color!!!!!!!!!!!!
-                  color: const Color(0xFF151026),
-                )),
-
-            darkTheme: ThemeData.dark(), // Provide dark theme.
+                )), // Provide dark theme.
             themeMode: currentModel.mode,
             // =model.mode
 
@@ -92,10 +112,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
+   /* SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent
           //color set to transperent or set your own color
         ));
+
+    */
 
     return HomePage();
   }
