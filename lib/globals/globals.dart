@@ -11,8 +11,43 @@ import 'package:trial0106/globals/constants_of_mood.dart';
 
 ThemeModel currentModel = ThemeModel();
 
+
+
+// Define the default `TextTheme`. Use this to specify the default
+// text styling for headlines, titles, bodies of text, and more.
+
+TextTheme textTextTheme = const TextTheme(
+
+  //for appbar
+  headline1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
+
+  //secondary appbar
+  headline2: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w200),
+
+  //for additional appbar things (as "done", "next")
+  headline3:  TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
+
+  //for smallest emotions
+  headline6: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w200),
+
+
+
+  // for smallest emotions appbar things
+  bodyText1: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400),
+
+  //for biger sub-emotions
+  bodyText2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w200),
+
+
+  //for the date
+  subtitle1: TextStyle(fontWeight: FontWeight.bold,
+      fontSize: 12,
+      color: Colors.blueGrey),
+
+);
+
 List<String> displayMoods = [
-  "jelous",
+  "jealous",
   "hurt",
   "furious",
   "mad",
@@ -75,7 +110,7 @@ ConstantsOfMood wholeList = ConstantsOfMood();
 
 Map<String, BlueprintMood> nameToBlueprint = {
   //ANGRY
-  "jelous": wholeList.JELOUS,
+  "jealous": wholeList.JEALOUS,
   "hurt": wholeList.HURT,
   "furious": wholeList.FURIOUS,
   "mad": wholeList.MAD,

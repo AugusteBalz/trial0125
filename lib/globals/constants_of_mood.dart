@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 import 'package:trial0106/globals/colors_of_mood.dart';
 import 'package:trial0106/models/blueprint_mood.dart';
 import 'package:trial0106/models/moods.dart';
@@ -13,10 +13,10 @@ class ConstantsOfMood {
   //ANGRY
 
 
-  BlueprintMood JELOUS = BlueprintMood(
-      name: "jelous",
+  BlueprintMood JEALOUS = BlueprintMood(
+      name: "jealous",
       moodPrimary: PrimaryMoods.Angry,
-      moodSecondary: SecondaryMoods.angry_Jelous,
+      moodSecondary: SecondaryMoods.angry_Jealous,
       color: angryMoodColor);
 
   BlueprintMood HURT = BlueprintMood(
@@ -173,7 +173,7 @@ class ConstantsOfMood {
   BlueprintMood DISAPPOINTED = BlueprintMood(
       name: "disappointed",
       moodPrimary: PrimaryMoods.Sad,
-      moodSecondary: SecondaryMoods.sad_Dissapointed,
+      moodSecondary: SecondaryMoods.sad_Disappointed,
       color: sadMoodColor);
 
   BlueprintMood MISERABLE = BlueprintMood(

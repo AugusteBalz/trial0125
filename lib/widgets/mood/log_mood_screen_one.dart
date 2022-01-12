@@ -51,7 +51,7 @@ class _LogMoodScreenOneState extends State<LogMoodScreenOne> {
         else {
 
           //add one new mood
-          oneEntry.eachMood.add( new OneMood(
+          oneEntry.eachMood.add( OneMood(
               moodPrimary: PrimaryMoods.Joy,
               moodSecondary: SecondaryMoods.joy_Proud,
               strength: 10,
@@ -70,11 +70,11 @@ class _LogMoodScreenOneState extends State<LogMoodScreenOne> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Pick a mood"),
+        title: Text("Pick a mood", style: Theme.of(context).textTheme.headline2),
 
         actions: <Widget>[
           Padding(
-              padding: EdgeInsets.only(right: 20.0, top: 15),
+              padding: const EdgeInsets.only(right: 20.0, top: 15),
               child: GestureDetector(
                 onTap: () {
 
@@ -83,7 +83,7 @@ class _LogMoodScreenOneState extends State<LogMoodScreenOne> {
                 },
                 child: Text(
                   "Next",
-                  style: TextStyle(fontSize: 20),
+                  style: Theme.of(context).textTheme.headline3,
                 ),
               )
           ),
@@ -91,7 +91,7 @@ class _LogMoodScreenOneState extends State<LogMoodScreenOne> {
       ),
       body: Center(
         child: Column(
-          children: [
+          children: const [
             DisplayMultiSelection(),
           ],
         ),

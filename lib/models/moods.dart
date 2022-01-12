@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 
 //list of primary moods
 
@@ -17,7 +17,7 @@ enum PrimaryMoods {
 enum SecondaryMoods {
   //angry
   angry_Default,
-  angry_Jelous,
+  angry_Jealous,
   angry_Hurt,
   angry_Furious,
   angry_Mad,
@@ -50,7 +50,7 @@ enum SecondaryMoods {
 
   //sad
   sad_Lonely,
-  sad_Dissapointed,
+  sad_Disappointed,
   sad_Miserable,
   sad_Guilty,
   sad_Depressed,

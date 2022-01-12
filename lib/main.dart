@@ -11,28 +11,17 @@ import 'package:trial0106/widgets/mood/log_mood_screen_two.dart';
 import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
-
-
-
-
 const primaryColor = Colors.transparent;
 
-void main()  {
-  runApp(
-    const MyAppFirst()
-  );
+void main() {
+  runApp(const MyAppFirst());
 }
-
 
 class MyAppFirst extends StatelessWidget {
   const MyAppFirst({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
-
-
-
     return ChangeNotifierProvider<ThemeModel>(
       create: (_) => currentModel,
       child: Consumer<ThemeModel>(
@@ -51,54 +40,44 @@ class MyAppFirst extends StatelessWidget {
               '/logmood2': (context) => const LogMoodScreenTwo(),
             },
             theme: ThemeData(
-              // Define the default brightness and colors.
+                // Define the default brightness and colors.
                 brightness: Brightness.light,
                 primaryColor: Colors.deepPurple,
 
                 // Define the default font family.
                 fontFamily: 'Comfortaa',
 
-
                 // Define the default `TextTheme`. Use this to specify the default
                 // text styling for headlines, titles, bodies of text, and more.
-                textTheme: const TextTheme(
-                  headline1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200, color: Colors.black),
-                  headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
-                  // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
+                textTheme: textTextTheme.apply(
+                 // bodyColor: Colors.orange,
+                  displayColor: Colors.black,
                 ),
                 appBarTheme: const AppBarTheme(
                   brightness: Brightness.light,
-
                   systemOverlayStyle: SystemUiOverlayStyle.dark,
                   color: Colors.white,
                   elevation: 1,
-
                 )),
 
-            darkTheme: ThemeData(// Define the default brightness and colors.
+            darkTheme: ThemeData(
+                // Define the default brightness and colors.
                 brightness: Brightness.dark,
                 primaryColor: const Color(0xFF151026),
 
                 // Define the default font family.
                 fontFamily: 'Comfortaa',
 
-
-                // Define the default `TextTheme`. Use this to specify the default
-                // text styling for headlines, titles, bodies of text, and more.
-                textTheme: const TextTheme(
-                  headline1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200, color: Colors.white),
-                  headline6: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
-                  // bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'OpenSans'),
+                //we add white text for dark theme
+                textTheme: textTextTheme.apply(
+                 // bodyColor: Colors.orange,
+                  displayColor: Colors.white,
                 ),
                 appBarTheme: const AppBarTheme(
-
                   elevation: 1,
-
-                )), // Provide dark theme.
+                )),
+            // Provide dark theme.
             themeMode: currentModel.mode,
-            // =model.mode
-
-
           );
         },
       ),
@@ -106,13 +85,12 @@ class MyAppFirst extends StatelessWidget {
   }
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-   /* SystemChrome.setSystemUIOverlayStyle(
+    /* SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(statusBarColor: Colors.transparent
           //color set to transperent or set your own color
         ));
@@ -133,34 +111,24 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   //we save the userinput
 
-
-
-
-
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     MainScreen(),
-
     ShowHistory(),
-
     Text(
       'Index 2: Business',
       style: optionStyle,
     ),
-
     AppSettings(),
-
   ];
-
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-    });}
-
-
+    });
+  }
 
   // Map<SecondaryMoods, int> allMoodLogs = {};
 
@@ -169,63 +137,53 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       //  extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title:  Text("Blossom", style: Theme.of(context).textTheme.headline1,),
-
+        title: Text(
+          "Blossom",
+          style: Theme.of(context).textTheme.headline1,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-
-
             //widget to select the moods from
             // UserMood(),
             _widgetOptions.elementAt(_selectedIndex),
           ],
         ),
       ),
-      bottomNavigationBar:
-
-      Theme(
+      bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          // sets the background color of the `BottomNavigationBar`
-           // canvasColor: Colors.green,
+            // sets the background color of the `BottomNavigationBar`
+            // canvasColor: Colors.green,
             // sets the active color of the `BottomNavigationBar` if `Brightness` is light
             primaryColor: Colors.red,
-            textTheme: Theme
-                .of(context)
+            textTheme: Theme.of(context)
                 .textTheme
-                .copyWith(caption: new TextStyle(color: Colors.yellow))), // sets the inactive color of the `BottomNavigationBar`
-        child: new BottomNavigationBar(
-
-
-         // backgroundColor: Colors.pink,
+                .copyWith(caption: const TextStyle(color: Colors.yellow))),
+        // sets the inactive color of the `BottomNavigationBar`
+        child: BottomNavigationBar(
+          // backgroundColor: Colors.pink,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.bubble_chart_rounded),
               label: 'Home',
-            //  backgroundColor: Colors.white,
-
-
+              //  backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.calendar_today_rounded),
               label: 'History',
-             // backgroundColor: Colors.white,
-
+              // backgroundColor: Colors.white,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.show_chart),
               label: 'Graphs',
-             // backgroundColor: Colors.white,
-
+              // backgroundColor: Colors.white,
             ),
-
             BottomNavigationBarItem(
               icon: Icon(Icons.miscellaneous_services_rounded),
               label: 'Settings',
-             // backgroundColor: Colors.white,
-
+              // backgroundColor: Colors.white,
             ),
           ],
           currentIndex: _selectedIndex,
@@ -234,21 +192,15 @@ class _HomePageState extends State<HomePage> {
           onTap: _onItemTapped,
         ),
       ),
-
-
-
-
-
-
-
     );
   }
 }
 
-
 class ThemeModel with ChangeNotifier {
   ThemeMode _mode;
+
   ThemeMode get mode => _mode;
+
   ThemeModel({ThemeMode mode = ThemeMode.light}) : _mode = mode;
 
   void toggleMode() {
@@ -256,4 +208,3 @@ class ThemeModel with ChangeNotifier {
     notifyListeners();
   }
 }
-

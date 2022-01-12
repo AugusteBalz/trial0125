@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:trial0106/globals/globals.dart';
 
-import 'package:provider/provider.dart';
 
 
 class AppSettings extends StatefulWidget {
@@ -15,24 +14,26 @@ class AppSettings extends StatefulWidget {
 class _AppSettingsState extends State<AppSettings> {
   @override
   Widget build(BuildContext context) {
+
+   int previousIndex = 0;
     return Container(
 
-      padding: EdgeInsets.all(10),
-      margin: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child:
       Column(
         children: [
 
           Container(
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
 
             child: Row(
               mainAxisAlignment:
               MainAxisAlignment.spaceBetween,
 
               children: [
-                Text("Theme"),
+                const Text("Theme"),
                 //ToggleButtons(children: children, isSelected: isSelected)
 
                 ToggleSwitch(
@@ -44,20 +45,25 @@ class _AppSettingsState extends State<AppSettings> {
                   inactiveBgColor: Colors.grey,
                   inactiveFgColor: Colors.white,
                   totalSwitches: 2,
-                  icons:  [
+                  icons:  const [
 
                     Icons.wb_sunny_rounded,
                     Icons.nights_stay_rounded,
 
                   ],
                   iconSize: 30.0,
-                  activeBgColors:  [[Colors.yellow, Colors.orange],[Colors.blue, Color(
+                  activeBgColors:  const [[Colors.yellow, Colors.orange],[Colors.blue, Color(
                       0xFF00116B)] ],
                   //animate: true, // with just animate set to true, default curve = Curves.easeIn
                   //curve: Curves.linear, // animate must be set to true when using custom curve
                   onToggle: (index) {
                     print('switched to: $index');
-                     currentModel.toggleMode();
+
+
+                     if(previousIndex!=index){
+                       currentModel.toggleMode();
+                       previousIndex = index;
+                     }
 
                   },
                 ),
@@ -65,10 +71,10 @@ class _AppSettingsState extends State<AppSettings> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
-            margin: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.all(10),
             child: Row(
-              children: [
+              children: const [
                 Text("Customize colors"),
               ],
             ),

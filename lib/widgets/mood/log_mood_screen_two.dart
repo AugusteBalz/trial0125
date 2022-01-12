@@ -6,7 +6,6 @@ import 'package:trial0106/widgets/mood/display_one_slider.dart';
 class LogMoodScreenTwo extends StatefulWidget {
   const LogMoodScreenTwo({Key? key}) : super(key: key);
 
-
   @override
   State<LogMoodScreenTwo> createState() => _LogMoodScreenTwoState();
 }
@@ -19,19 +18,17 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
     });
   }
 
- // double currentSliderValue = 1;
+  // double currentSliderValue = 1;
 
   @override
   Widget build(BuildContext context) {
-
-
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Second mood screen"),
+        title: Text("How strong are these emotions?",
+            style: Theme.of(context).textTheme.headline2),
         actions: <Widget>[
           Padding(
-              padding: EdgeInsets.only(right: 20.0, top: 15),
+              padding: const EdgeInsets.only(right: 20.0, top: 15),
               child: GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
@@ -41,23 +38,20 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
                 },
                 child: Text(
                   "Done",
-                  style: TextStyle(fontSize: 20),
+                  style: Theme.of(context).textTheme.headline3,
                 ),
               )),
         ],
       ),
       body: SingleChildScrollView(
         child: Container(
-
-          padding: EdgeInsets.only(top: 40),
+          padding: const EdgeInsets.only(top: 40),
           child: Center(
-
             child: Column(
-
               children: oneEntry.eachMood.map((md) {
                 //previous output:
-                // "SecondaryMood.angry_jelous"
-                //this leaves it just with "jelous"
+                // "SecondaryMood.angry_jealous"
+                //this leaves it just with "jealous"
 
                 String temp = md.moodSecondary.toString();
                 String newMoodS =
@@ -76,28 +70,30 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
                 //displaying widgets
 
                 return Container(
-                    child: Container(
                   margin: const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 15,
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 1, horizontal: 10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 1, horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             //primary mood
-                            Container(
-                              child: Text(newMoodP,
-                                  style: TextStyle(
+                            Text(
+                              newMoodP,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1!
+                                  .copyWith(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 10,
                                     color: myColor,
-                                  )),
+                                  ),
                             ),
 
                             //the date
@@ -105,23 +101,18 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
                         ),
                       ),
                       Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             //secondary mood
-                            Container(
-                              child: Text(
-                                newMoodS,
-                                // style: GoogleFonts.lato(fontStyle: FontStyle.italic, fontSize: )
-
-                                style: const TextStyle(
-                                  fontSize: 20,
-                                ),
-                              ),
+                            Text(
+                              newMoodS,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyText2,
                             ),
-
 
                             DisplayOneSlider(md: md),
                           ],
@@ -129,11 +120,7 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
                       ),
                     ],
                   ),
-                )
-
-                    //Text(newMood),
-
-                    );
+                );
               }).toList(),
             ),
           ),

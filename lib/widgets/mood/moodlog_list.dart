@@ -34,16 +34,13 @@ class MoodLogList extends StatelessWidget {
                       children: [
                         Container(
                           padding: const EdgeInsets.symmetric(
-                            vertical: 10,
+                            vertical: 15,
                             horizontal: 15,
                           ),
                           child: Text(
-                            DateFormat("MMM d, hh:mm").format(entryTime),
+                            DateFormat("MMM d, HH:mm").format(entryTime),
                             //writes out the date
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10,
-                                color: Colors.blueGrey),
+                            style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ),
                         Column(
@@ -95,11 +92,10 @@ class MoodLogList extends StatelessWidget {
                                         //primary mood
                                         Container(
                                           child: Text(newMoodP,
-                                              style: TextStyle(
+                                              style: Theme.of(context).textTheme.bodyText1!.copyWith(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 10,
                                                 color: myColor,
-                                              )),
+                                              ),),
                                         ),
 
                                         //the date
@@ -117,11 +113,7 @@ class MoodLogList extends StatelessWidget {
                                         Container(
                                           child: Text(
                                             newMoodS,
-                                            // style: GoogleFonts.lato(fontStyle: FontStyle.italic, fontSize: )
-
-                                            style: const TextStyle(
-                                              fontSize: 20,
-                                            ),
+                                            style: Theme.of(context).textTheme.bodyText2,
                                           ),
                                         ),
 
