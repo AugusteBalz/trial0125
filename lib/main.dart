@@ -5,6 +5,7 @@ import 'package:trial0106/globals/globals.dart';
 import 'package:trial0106/widgets/app_settings.dart';
 import 'package:trial0106/widgets/history.dart';
 import 'package:trial0106/widgets/main_screen.dart';
+import 'package:trial0106/widgets/mood/emotion_selection_screen.dart';
 import 'package:trial0106/widgets/mood/slider_widget.dart';
 import 'package:trial0106/widgets/mood/log_mood_screen_one.dart';
 import 'package:trial0106/widgets/mood/log_mood_screen_two.dart';
@@ -38,6 +39,8 @@ class MyAppFirst extends StatelessWidget {
               '/logmood1': (context) => const LogMoodScreenOne(),
 
               '/logmood2': (context) => const LogMoodScreenTwo(),
+
+              '/emotionSelectionScreen' : (context) => const EmotionSelectionScreen(),
             },
             theme: ThemeData(
                 // Define the default brightness and colors.

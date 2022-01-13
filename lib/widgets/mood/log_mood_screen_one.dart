@@ -74,7 +74,7 @@ class _LogMoodScreenOneState extends State<LogMoodScreenOne> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pick a mood", style: Theme.of(context).textTheme.headline2),
+        title: Text("Bandom laime rast", style: Theme.of(context).textTheme.headline2),
 
         actions: <Widget>[
           Padding(
