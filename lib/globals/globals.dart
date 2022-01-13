@@ -22,7 +22,7 @@ ThemeModel currentModel = ThemeModel();
 TextTheme textTextTheme = const TextTheme(
 
   //for appbar
-  headline1: TextStyle(fontSize: 30.0, fontWeight: FontWeight.w200),
+  headline1: TextStyle(fontSize: 27.0, fontWeight: FontWeight.w200),
 
   //secondary appbar
   headline2: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w200),
@@ -101,9 +101,6 @@ List<String> displayMoods = [
 
   "empty",
   "shameful",
-
-
-
 
 ];
 
