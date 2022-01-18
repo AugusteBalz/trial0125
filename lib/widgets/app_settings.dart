@@ -40,7 +40,7 @@ class _AppSettingsState extends State<AppSettings> {
                 ToggleSwitch(
                   minWidth: 60.0,
                   minHeight: 50.0,
-                  initialLabelIndex: 0,
+                  initialLabelIndex: previousIndex,
                   cornerRadius: 20.0,
                   activeFgColor: Colors.white,
                   inactiveBgColor: Colors.grey,

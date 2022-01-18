@@ -58,15 +58,12 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
         ),
       ),
     ),
-
   ];
 
   double? currentPage = 0;
 
-
   @override
   void initState() {
-
     //add
     controller.addListener(() {
       setState(() {
@@ -90,10 +87,25 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
         controller: controller,
         itemCount: displayWidgets.length,
         itemBuilder: (context, index) {
-          return Transform(
+          return displayWidgets[index];
+          /*
+
+
+
+Transform(
+              alignment: Alignment.bottomCenter,
+              transform: new Matrix4.identity()
+                ..rotateZ(15 * 3.1415927 / 180),
+              child: (displayWidgets[index]));
+
+
+           //anothr
+           Transform(
+
             alignment: Alignment.bottomCenter,
               transform: Matrix4.identity()..rotateX(currentPage! - index),
               child: (displayWidgets[index]));
+            */
         },
       ),
 
