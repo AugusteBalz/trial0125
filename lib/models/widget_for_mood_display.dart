@@ -41,9 +41,12 @@ class WidgetForMoodDisplay extends StatelessWidget {
 
 
 
-            Container(
+            SingleChildScrollView(
+              child: Container(
 
-              child: DisplayMultiSelection(items: newMood.moodS),
+                margin: EdgeInsets.symmetric(vertical: 150, horizontal: 50),
+                child: DisplayMultiSelection(items: newMood.moodS),
+              ),
             ),
 
           ],

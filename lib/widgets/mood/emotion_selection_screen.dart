@@ -36,17 +36,6 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
     WidgetForMoodDisplay(newMood: loveSelection),
     WidgetForMoodDisplay(newMood: otherSelection),
 
-    /*
-    WidgetForMoodDisplay(selectEmotion: selectJoy),
-    WidgetForMoodDisplay(selectEmotion: selectSurprise),
-    WidgetForMoodDisplay(selectEmotion: selectFearful),
-    WidgetForMoodDisplay(selectEmotion: selectAngry),
-    WidgetForMoodDisplay(selectEmotion: selectLove),
-    WidgetForMoodDisplay(selectEmotion: selectOther),
-
-     */
-
-
 
   ];
 
