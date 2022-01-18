@@ -105,7 +105,7 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title:
-            Text("Pick a mood", style: Theme.of(context).textTheme.headline2),
+            Text("How are you feeling?", style: Theme.of(context).textTheme.headline2),
         backgroundColor: Colors.transparent,
 
         actions: <Widget>[

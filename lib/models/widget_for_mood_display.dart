@@ -12,7 +12,7 @@ class WidgetForMoodDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: newMood.color,
-      //Colors.deepOrangeAccent,//widget.selectEmotion.color,
+
       child: Stack(children: [
 
         Align(
@@ -45,7 +45,7 @@ class WidgetForMoodDisplay extends StatelessWidget {
               child: Container(
 
                 margin: EdgeInsets.symmetric(vertical: 150, horizontal: 50),
-                child: DisplayMultiSelection(items: newMood.moodS),
+                child: DisplayMultiSelection(items: newMood),
               ),
             ),
 

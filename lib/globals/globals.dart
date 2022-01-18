@@ -93,6 +93,9 @@ TextTheme textTextTheme = const TextTheme(
   //for additional appbar things (as "done", "next")
   headline3: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
 
+  //for mood choice chips
+  headline4: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w200),
+
   //for smallest emotions
   headline6: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w200),
 

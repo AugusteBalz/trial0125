@@ -1,6 +1,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:trial0106/models/mood_select.dart';
 
 /*
 taken from
@@ -8,7 +9,7 @@ https://github.com/ponnamkarthik/MultiSelectChoiceChip
  */
 
 class MultiSelectChip extends StatefulWidget {
-  final List<String> reportList;
+  final MoodSelect reportList;
   final Function(List<String>)? onSelectionChanged;
   final Function(List<String>)? onMaxSelected;
   final int? maxSelection;
@@ -26,12 +27,19 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
   _buildChoiceList() {
     List<Widget> choices = [];
 
-    widget.reportList.forEach((item) {
+    widget.reportList.moodS.forEach((item) {
       choices.add(Container(
         padding: const EdgeInsets.all(2.0),
-        child: ChoiceChip(
-          label: Text(item),
+        child: FilterChip(
+          label: Text(item, style: Theme.of(context).textTheme.headline4,),
           selected: selectedChoices.contains(item),
+
+          backgroundColor: Colors.white,
+         // shape: StadiumBorder(side: BorderSide(
+          //  color: Colors.blueGrey,)),
+          selectedColor: Colors.white10,
+          selectedShadowColor: widget.reportList.color,
+          elevation: 10,
           onSelected: (selected) {
             if (selectedChoices.length == (widget.maxSelection ?? -1) &&
                 !selectedChoices.contains(item)) {
