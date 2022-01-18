@@ -5,22 +5,85 @@ import 'package:trial0106/globals/colors_of_mood.dart';
 import 'package:trial0106/main.dart';
 import 'package:trial0106/models/blueprint_mood.dart';
 import 'package:trial0106/models/mood_entries.dart';
+import 'package:trial0106/models/mood_select.dart';
 import 'package:trial0106/models/moods.dart';
 import 'package:trial0106/models/one_mood.dart';
 import 'package:trial0106/globals/constants_of_mood.dart';
-
 
 int previousIndex = 0; //for theme toggling
 
 ThemeModel currentModel = ThemeModel();
 
 
+MoodSelect joySelection = MoodSelect(moodP: "Joy", color: joyMoodColor, moodS: [
+  "proud",
+  "cheerful",
+  "peaceful",
+  "pleased",
+]);
+MoodSelect angrySelection = MoodSelect(moodP: "Angry", color: angryMoodColor, moodS: [
+  "jealous",
+  "hurt",
+  "furious",
+  "mad",
+  "triggered",
+],);
+MoodSelect sadSelection = MoodSelect(moodP: "Sad", color: sadMoodColor, moodS: [
+
+  "lonely",
+  "disappointed",
+  "miserable",
+  "guilty",
+  "depressed",
+
+],);
+MoodSelect surpriseSelection = MoodSelect(moodP: "Surprise", color: surpriseMoodColor, moodS: [
+
+  "amazed",
+  "confused",
+  "stunned",
+  "shocked",
+
+],);
+MoodSelect loveSelection = MoodSelect(moodP: "Love", color: loveMoodColor, moodS: [
+
+"romantic",
+"sentimental",
+"appreciative",
+
+  ],);
+MoodSelect fearSelection = MoodSelect(moodP: "Fear", color: fearMoodColor, moodS: [
+
+  "scared",
+  "insecure",
+  "helpless",
+  "anxious",
+],);
+
+MoodSelect otherSelection = MoodSelect(moodP: "Other", color: otherMoodColor, moodS: [
+
+  "empty",
+  "shameful",
+],);
+
+
+/*
+
+
+BlueprintMoodSelection selectOther = BlueprintMoodSelection(
+  primaryMood: "Other",
+  color: otherMoodColor,
+  secondaryMoods:
+);
+
+
+ */
+
 
 // Define the default `TextTheme`. Use this to specify the default
 // text styling for headlines, titles, bodies of text, and more.
 
 TextTheme textTextTheme = const TextTheme(
-
   //for appbar
   headline1: TextStyle(fontSize: 27.0, fontWeight: FontWeight.w200),
 
@@ -28,12 +91,10 @@ TextTheme textTextTheme = const TextTheme(
   headline2: TextStyle(fontSize: 15.0, fontWeight: FontWeight.w200),
 
   //for additional appbar things (as "done", "next")
-  headline3:  TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
+  headline3: TextStyle(fontSize: 17.0, fontWeight: FontWeight.w400),
 
   //for smallest emotions
   headline6: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w200),
-
-
 
   // for smallest emotions appbar things
   bodyText1: TextStyle(fontSize: 10.0, fontWeight: FontWeight.w400),
@@ -41,12 +102,9 @@ TextTheme textTextTheme = const TextTheme(
   //for bigger sub-emotions
   bodyText2: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w200),
 
-
   //for the date
-  subtitle1: TextStyle(fontWeight: FontWeight.bold,
-      fontSize: 12,
-      color: Colors.blueGrey),
-
+  subtitle1: TextStyle(
+      fontWeight: FontWeight.bold, fontSize: 12, color: Colors.blueGrey),
 );
 
 List<String> displayMoods = [
@@ -71,8 +129,6 @@ List<String> displayMoods = [
 
   //-------
 
-
-
   //JOY
 
   "proud",
@@ -80,13 +136,11 @@ List<String> displayMoods = [
   "peaceful",
   "pleased",
 
-
   //SURPRISE
   "amazed",
   "confused",
   "stunned",
   "shocked",
-
 
   //SAD
 
@@ -96,12 +150,10 @@ List<String> displayMoods = [
   "guilty",
   "depressed",
 
-
   //OTHER
 
   "empty",
   "shameful",
-
 ];
 
 List<String> selectedDisplayMoods = [];
@@ -131,18 +183,16 @@ Map<String, BlueprintMood> nameToBlueprint = {
 
   //JOY
 
-  "proud" : wholeList.PROUD,
-  "cheerful" : wholeList.CHEERFUL,
-  "peaceful" : wholeList.PEACEFUL,
-  "pleased" : wholeList.PLEASED,
-
+  "proud": wholeList.PROUD,
+  "cheerful": wholeList.CHEERFUL,
+  "peaceful": wholeList.PEACEFUL,
+  "pleased": wholeList.PLEASED,
 
   //SURPRISE
   "amazed": wholeList.AMAZED,
   "confused": wholeList.CONFUSED,
   "stunned": wholeList.STUNNED,
   "shocked": wholeList.SHOCKED,
-
 
   //SAD
 
@@ -152,32 +202,23 @@ Map<String, BlueprintMood> nameToBlueprint = {
   "guilty": wholeList.GUILTY,
   "depressed": wholeList.DEPRESSED,
 
-
   //OTHER
 
   "empty": wholeList.EMPTY,
   "shameful": wholeList.SHAMEFUL,
-
-
 };
 
-Map<PrimaryMoods, Color>  primaryColors= {
-
-  PrimaryMoods.Joy : joyMoodColor,
-  PrimaryMoods.Angry : angryMoodColor,
-  PrimaryMoods.Fearful : fearMoodColor,
-  PrimaryMoods.Love : loveMoodColor,
-  PrimaryMoods.Sad : sadMoodColor,
-  PrimaryMoods.Surprise : surpriseMoodColor,
-  PrimaryMoods.Other : otherMoodColor,
-
-
+Map<PrimaryMoods, Color> primaryColors = {
+  PrimaryMoods.Joy: joyMoodColor,
+  PrimaryMoods.Angry: angryMoodColor,
+  PrimaryMoods.Fearful: fearMoodColor,
+  PrimaryMoods.Love: loveMoodColor,
+  PrimaryMoods.Sad: sadMoodColor,
+  PrimaryMoods.Surprise: surpriseMoodColor,
+  PrimaryMoods.Other: otherMoodColor,
 };
 
-final List<MoodEntry> moodEntryList = [
-
-];
-
+final List<MoodEntry> moodEntryList = [];
 
 final List<MoodEntry> moodEntryList2 = [
   MoodEntry(
@@ -218,6 +259,11 @@ final List<MoodEntry> moodEntryList2 = [
   ),
 ];
 
-OneMood oneSubEmotion = OneMood(moodPrimary: PrimaryMoods.Love, moodSecondary: SecondaryMoods.joy_Proud, strength: 0, color: Colors.grey);
+OneMood oneSubEmotion = OneMood(
+    moodPrimary: PrimaryMoods.Love,
+    moodSecondary: SecondaryMoods.joy_Proud,
+    strength: 0,
+    color: Colors.grey);
 
-MoodEntry oneEntry = MoodEntry(id: "a1", dateTime: DateTime.now(), eachMood: []);
+MoodEntry oneEntry =
+MoodEntry(id: "a1", dateTime: DateTime.now(), eachMood: []);

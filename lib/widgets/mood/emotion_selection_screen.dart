@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:trial0106/globals/globals.dart';
+import 'package:trial0106/models/blueprint_mood.dart';
+import 'package:trial0106/models/mood_entries.dart';
+import 'package:trial0106/models/moods.dart';
+import 'package:trial0106/models/one_mood.dart';
 
 import 'dart:math';
+
+import 'package:trial0106/models/widget_for_mood_display.dart';
 
 class EmotionSelectionScreen extends StatefulWidget {
   const EmotionSelectionScreen({Key? key}) : super(key: key);
@@ -15,50 +22,35 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
 
   final colors = ["Red", "Green", "Yellow", "Black", "Pink"];
 
-  final displayWidgets = [
+  final List<dynamic> displayWidgets = [
+
+    WidgetForMoodDisplay(newMood: sadSelection),
+
     Container(
-      color: Colors.red,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Transform.scale(
-          scale: 1.7,
-          child: Container(
-            height: 400,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(200)),
-          ),
-        ),
-      ),
+      child: WidgetForMoodDisplay(newMood: joySelection),
     ),
-    Container(
-      color: Colors.amber,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Transform.scale(
-          scale: 1.7,
-          child: Container(
-            height: 400,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(200)),
-          ),
-        ),
-      ),
-    ),
-    Container(
-      color: Colors.green,
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Transform.scale(
-          scale: 1.7,
-          child: Container(
-            height: 400,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(200)),
-          ),
-        ),
-      ),
-    ),
+
+    WidgetForMoodDisplay(newMood: surpriseSelection),
+    WidgetForMoodDisplay(newMood: fearSelection),
+    WidgetForMoodDisplay(newMood: angrySelection),
+    WidgetForMoodDisplay(newMood: loveSelection),
+    WidgetForMoodDisplay(newMood: otherSelection),
+
+    /*
+    WidgetForMoodDisplay(selectEmotion: selectJoy),
+    WidgetForMoodDisplay(selectEmotion: selectSurprise),
+    WidgetForMoodDisplay(selectEmotion: selectFearful),
+    WidgetForMoodDisplay(selectEmotion: selectAngry),
+    WidgetForMoodDisplay(selectEmotion: selectLove),
+    WidgetForMoodDisplay(selectEmotion: selectOther),
+
+     */
+
+
+
   ];
+
+
 
   double? currentPage = 0;
 
@@ -73,6 +65,51 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
     super.initState();
   }
 
+  void _addNewMoodEntry() {
+    //default blueprint
+
+    BlueprintMood? temporaryMood = defaultBlueprint;
+
+    final MoodEntry newEntry =
+
+    //TODO: fix that ids would be calculated dynamically
+    MoodEntry(id: "k1", dateTime: DateTime.now(), eachMood: []);
+
+    oneEntry = newEntry;
+
+    setState(() {
+      for (String emotion in selectedDisplayMoods) {
+
+
+        if (nameToBlueprint.containsKey(emotion)) {
+
+          temporaryMood = nameToBlueprint[emotion];
+          oneEntry.eachMood.add(
+            OneMood(
+              moodPrimary: temporaryMood!.moodPrimary,
+              moodSecondary: temporaryMood!.moodSecondary,
+              strength: 0,
+              color: temporaryMood!.color,
+            ),
+          );
+        }
+
+        else {
+
+          //add one new mood
+          oneEntry.eachMood.add( OneMood(
+              moodPrimary: PrimaryMoods.Joy,
+              moodSecondary: SecondaryMoods.joy_Proud,
+              strength: 10,
+              color: Colors.yellow));
+        }
+
+
+      }
+
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,13 +118,34 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
         title:
             Text("Pick a mood", style: Theme.of(context).textTheme.headline2),
         backgroundColor: Colors.transparent,
+
+        actions: <Widget>[
+          Padding(
+              padding: const EdgeInsets.only(right: 20.0, top: 15),
+              child: GestureDetector(
+                onTap: () {
+
+                  _addNewMoodEntry();
+                  Navigator.pushNamed(context, "/logmood2");
+                },
+                child: Text(
+                  "Next",
+                  style: Theme.of(context).textTheme.headline3,
+                ),
+              )
+          ),
+        ],
       ),
+
+
       body: PageView.builder(
         scrollDirection: Axis.horizontal,
         controller: controller,
-        itemCount: displayWidgets.length,
+       // itemCount: displayWidgets.length,
         itemBuilder: (context, index) {
-          return displayWidgets[index];
+
+
+          return displayWidgets[index % (displayWidgets.length)];
           /*
 
 

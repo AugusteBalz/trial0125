@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trial0106/models/one_mood.dart';
-import 'custom_slider_thumb_circle.dart';
+import '../../models/custom_slider_thumb_circle.dart';
 
 class SliderWidget extends StatefulWidget {
   final double sliderHeight;

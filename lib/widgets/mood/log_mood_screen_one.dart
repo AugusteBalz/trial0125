@@ -96,7 +96,7 @@ class _LogMoodScreenOneState extends State<LogMoodScreenOne> {
       body: Center(
         child: Column(
           children: const [
-            DisplayMultiSelection(),
+           // DisplayMultiSelection(),
           ],
         ),
       ),
