@@ -34,7 +34,7 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
           label: Text(item, style: Theme.of(context).textTheme.headline4,),
           selected: selectedChoices.contains(item),
 
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
          // shape: StadiumBorder(side: BorderSide(
           //  color: Colors.blueGrey,)),
           selectedColor: Colors.white10,
@@ -63,6 +63,9 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
   @override
   Widget build(BuildContext context) {
     return Wrap(
+      spacing: 8.0, // gap between adjacent chips
+      runSpacing: 4.0, // gap between lines
+      alignment: WrapAlignment.center,
       children: _buildChoiceList(),
     );
   }
