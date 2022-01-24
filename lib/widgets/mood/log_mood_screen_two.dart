@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
 import 'package:trial0106/globals/globals.dart';
 
 import 'package:trial0106/widgets/mood/display_one_slider.dart';
@@ -11,10 +12,22 @@ class LogMoodScreenTwo extends StatefulWidget {
 }
 
 class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
+
+//  File _storedMoodEntryList;
+
+
   void _addNewMoodEntryFinal() {
     setState(() {
       //puts it reversed
       moodEntryList.insert(0, oneEntry);
+    });
+  }
+
+  void _cleanMoodEntryList(){
+
+    setState(() {
+      //TODO: which should be cleaned?
+      moodEntryList.clear();
     });
   }
 
@@ -35,6 +48,7 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
                   Navigator.pop(context);
 
                   _addNewMoodEntryFinal();
+
                 },
                 child: Text(
                   "Done",
@@ -48,6 +62,8 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
           padding: const EdgeInsets.only(top: 40),
           child: Center(
             child: Column(
+              //TODO: make it stretch
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: oneEntry.eachMood.map((md) {
                 //previous output:
                 // "SecondaryMood.angry_jealous"
@@ -109,9 +125,7 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
                             //secondary mood
                             Text(
                               newMoodS,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyText2,
+                              style: Theme.of(context).textTheme.bodyText2,
                             ),
 
                             DisplayOneSlider(md: md),

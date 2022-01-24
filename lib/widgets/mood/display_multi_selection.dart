@@ -9,18 +9,25 @@ import 'package:trial0106/widgets/mood/multi_select_chip2.dart';
 class DisplayMultiSelection extends StatefulWidget {
   
   final MoodSelect items;
-  
-  const DisplayMultiSelection({Key? key, required this.items}) : super(key: key);
+  final List<String> selectedChoices;
+
+  const DisplayMultiSelection({Key? key, required this.items, required this.selectedChoices}) : super(key: key);
 
   @override
   _DisplayMultiSelectionState createState() => _DisplayMultiSelectionState();
 }
 
 class _DisplayMultiSelectionState extends State<DisplayMultiSelection> {
+
+
+
+
   @override
   Widget build(BuildContext context) {
     return MultiSelectChip(
       widget.items,
+      widget.selectedChoices,
+
       onSelectionChanged: (selectedList) {
         setState(() {
 

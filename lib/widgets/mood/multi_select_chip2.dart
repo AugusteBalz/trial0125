@@ -13,8 +13,9 @@ class MultiSelectChip extends StatefulWidget {
   final Function(List<String>)? onSelectionChanged;
   final Function(List<String>)? onMaxSelected;
   final int? maxSelection;
+  final List<String> selectedChoices;
 
-  MultiSelectChip(this.reportList, {this.onSelectionChanged, this.onMaxSelected, this.maxSelection});
+  MultiSelectChip(this.reportList, this.selectedChoices, {this.onSelectionChanged, this.onMaxSelected, this.maxSelection});
 
   @override
   _MultiSelectChipState createState() => _MultiSelectChipState();
@@ -22,7 +23,7 @@ class MultiSelectChip extends StatefulWidget {
 
 class _MultiSelectChipState extends State<MultiSelectChip> {
   // String selectedChoice = "";
-  List<String> selectedChoices = [];
+
 
   _buildChoiceList() {
     List<Widget> choices = [];
@@ -32,7 +33,7 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
         padding: const EdgeInsets.all(2.0),
         child: FilterChip(
           label: Text(item, style: Theme.of(context).textTheme.headline4,),
-          selected: selectedChoices.contains(item),
+          selected: widget.selectedChoices.contains(item),
 
           backgroundColor: Colors.transparent,
          // shape: StadiumBorder(side: BorderSide(
@@ -41,15 +42,15 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
           selectedShadowColor: widget.reportList.color,
           elevation: 10,
           onSelected: (selected) {
-            if (selectedChoices.length == (widget.maxSelection ?? -1) &&
-                !selectedChoices.contains(item)) {
-              widget.onMaxSelected?.call(selectedChoices);
+            if (widget.selectedChoices.length == (widget.maxSelection ?? -1) &&
+                !widget.selectedChoices.contains(item)) {
+              widget.onMaxSelected?.call(widget.selectedChoices);
             } else {
               setState(() {
-                selectedChoices.contains(item)
-                    ? selectedChoices.remove(item)
-                    : selectedChoices.add(item);
-                widget.onSelectionChanged?.call(selectedChoices);
+                widget.selectedChoices.contains(item)
+                    ? widget.selectedChoices.remove(item)
+                    : widget.selectedChoices.add(item);
+                widget.onSelectionChanged?.call(widget.selectedChoices);
               });
             }
           },

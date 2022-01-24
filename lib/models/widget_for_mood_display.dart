@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:trial0106/globals/globals.dart';
 import 'package:trial0106/models/mood_select.dart';
 import 'package:trial0106/widgets/mood/display_multi_selection.dart';
 
+List<String> selectedChoices = [];
+
+
 class WidgetForMoodDisplay extends StatelessWidget {
   final MoodSelect newMood;
+
 
   const WidgetForMoodDisplay({Key? key, required this.newMood})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Container(
       color: newMood.color,
 
@@ -45,7 +53,7 @@ class WidgetForMoodDisplay extends StatelessWidget {
               child: Container(
 
                 margin: EdgeInsets.symmetric(vertical: 150, horizontal: 50),
-                child: DisplayMultiSelection(items: newMood),
+                child: DisplayMultiSelection(items: newMood, selectedChoices: moodSelection,),
               ),
             ),
 

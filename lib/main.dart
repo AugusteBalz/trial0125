@@ -9,7 +9,7 @@ import 'package:trial0106/widgets/mood/emotion_selection_screen.dart';
 import 'package:trial0106/widgets/mood/slider_widget.dart';
 import 'package:trial0106/widgets/mood/log_mood_screen_one.dart';
 import 'package:trial0106/widgets/mood/log_mood_screen_two.dart';
-import 'package:hive/hive.dart';
+
 import 'package:provider/provider.dart';
 
 const primaryColor = Colors.transparent;

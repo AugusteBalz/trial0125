@@ -43,15 +43,21 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
-  #import hive
-  hive: ^2.0.5
-  hive_flutter: ^1.1.0
+
 
   #carousel
   carousel_slider: ^4.0.0
 
   #change theme
   provider: ^6.0.2
+
+  #SQL database
+  sqflite: ^2.0.2
+
+  #for trying out
+  image_picker: ^0.8.4+4
+  path_provider: ^2.0.8
+  path: ^1.8.0
 
 dev_dependencies:
   flutter_test:

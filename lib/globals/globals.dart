@@ -59,7 +59,6 @@ MoodSelect fearSelection = MoodSelect(moodP: "Fear", color: fearMoodColor, moodS
   "helpless",
   "anxious",
 ],);
-
 MoodSelect otherSelection = MoodSelect(moodP: "Other", color: otherMoodColor, moodS: [
 
   "empty",
@@ -162,6 +161,9 @@ List<String> displayMoods = [
 List<String> selectedDisplayMoods = [];
 
 ConstantsOfMood wholeList = ConstantsOfMood();
+
+List<String> selectedChoicesAll = [];
+List<String> moodSelection = [];
 
 Map<String, BlueprintMood> nameToBlueprint = {
   //ANGRY

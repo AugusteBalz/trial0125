@@ -30,7 +30,7 @@ class _SliderWidgetState extends State<SliderWidget> {
     if (widget.fullWidth) paddingFactor = .3;
 
     return Container(
-      width: widget.fullWidth ? double.infinity : (widget.sliderHeight) * 4.2,
+      width: widget.fullWidth ? double.infinity : (widget.sliderHeight) * 3.8,
       height: (widget.sliderHeight),
 
       child: Padding(

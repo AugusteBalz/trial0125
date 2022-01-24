@@ -20,7 +20,6 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
   PageController controller = PageController();
   var currentPageValue = 0.0;
 
-  final colors = ["Red", "Green", "Yellow", "Black", "Pink"];
 
   final List<dynamic> displayWidgets = [
 
@@ -101,6 +100,9 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -116,6 +118,8 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
 
                   _addNewMoodEntry();
                   Navigator.pushNamed(context, "/logmood2");
+                  moodSelection.clear();
+
                 },
                 child: Text(
                   "Next",

@@ -83,6 +83,7 @@ class _LogMoodScreenOneState extends State<LogMoodScreenOne> {
                 onTap: () {
 
                   _addNewMoodEntry();
+
                   Navigator.pushNamed(context, "/logmood2");
                 },
                 child: Text(
