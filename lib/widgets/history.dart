@@ -2,6 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:trial0106/widgets/mood/moodlog_list.dart';
 
+
+/*
+
+shows previously added emotions
+
+ */
+
 class ShowHistory extends StatefulWidget {
   const ShowHistory({Key? key}) : super(key: key);
 

@@ -117,7 +117,11 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
                 onTap: () {
 
                   _addNewMoodEntry();
+
+                  //if a person presses "Next", he goes to the next screen to rate the strength of his/her emotions
                   Navigator.pushNamed(context, "/logmood2");
+
+                  //delete all previous
                   moodSelection.clear();
 
                 },

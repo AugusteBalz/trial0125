@@ -5,6 +5,10 @@ import 'package:trial0106/models/moods.dart';
 import 'package:trial0106/models/one_mood.dart';
 import 'package:trial0106/widgets/mood/multi_select_chip2.dart';
 
+/*
+Displays multi selection chips in 1st mood logging screen
+ */
+
 
 class DisplayMultiSelection extends StatefulWidget {
   
@@ -31,13 +35,13 @@ class _DisplayMultiSelectionState extends State<DisplayMultiSelection> {
       onSelectionChanged: (selectedList) {
         setState(() {
 
+          //add all selected moods to the list
           selectedDisplayMoods = [...selectedList];
 
         });
       },
 
-      //TODO: what is our max selection? Do we need one?
-      maxSelection: 5,
+
     );
   }
 }

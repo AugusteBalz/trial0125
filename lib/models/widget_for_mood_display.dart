@@ -23,6 +23,7 @@ class WidgetForMoodDisplay extends StatelessWidget {
 
       child: Stack(children: [
 
+        //white half circle
         Align(
           alignment: Alignment.bottomCenter,
           child: Transform.scale(
@@ -40,14 +41,14 @@ class WidgetForMoodDisplay extends StatelessWidget {
         Column(
           children: [
 
-
-
+            //name of the emotion
 
             Container(
                 margin: EdgeInsets.only(top: 200),
                 child: Center(child: Text(newMood.moodP))),
 
 
+            // display secondary emotions
 
             SingleChildScrollView(
               child: Container(
