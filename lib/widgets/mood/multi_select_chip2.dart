@@ -42,17 +42,14 @@ class _MultiSelectChipState extends State<MultiSelectChip> {
           selectedShadowColor: widget.reportList.color,
           elevation: 10,
           onSelected: (selected) {
-            if (widget.selectedChoices.length == (widget.maxSelection ?? -1) &&
-                !widget.selectedChoices.contains(item)) {
-              widget.onMaxSelected?.call(widget.selectedChoices);
-            } else {
+
               setState(() {
                 widget.selectedChoices.contains(item)
                     ? widget.selectedChoices.remove(item)
                     : widget.selectedChoices.add(item);
                 widget.onSelectionChanged?.call(widget.selectedChoices);
               });
-            }
+
           },
         ),
       ));
