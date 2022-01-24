@@ -66,6 +66,8 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
     oneEntry = newEntry;
 
     setState(() {
+
+
       for (String emotion in selectedDisplayMoods) {
 
 
@@ -116,13 +118,31 @@ class _EmotionSelectionScreenState extends State<EmotionSelectionScreen> {
               child: GestureDetector(
                 onTap: () {
 
+
                   _addNewMoodEntry();
 
-                  //if a person presses "Next", he goes to the next screen to rate the strength of his/her emotions
-                  Navigator.pushNamed(context, "/logmood2");
+                  if (oneEntry.eachMood.isEmpty){
+                    //display a pop up saying "please add at least one emotion!
 
-                  //delete all previous
-                  moodSelection.clear();
+
+
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => _buildPopupDialog(context),
+                    );
+                  }
+
+                  else {
+
+                    //if a person presses "Next", he goes to the next screen to rate the strength of his/her emotions
+                    Navigator.pushNamed(context, "/logmood2");
+
+                    //delete all previous
+                    moodSelection.clear();
+
+                  }
+
+
 
                 },
                 child: Text(
@@ -211,4 +231,30 @@ Transform(
       */
     );
   }
+}
+
+
+
+
+
+Widget _buildPopupDialog(BuildContext context) {
+  return AlertDialog(
+    title: const Text('Hi there!'),
+    content: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: const <Widget>[
+        Text("It seems like you haven't selected any emotions... Please select at least one:)"),
+      ],
+    ),
+    actions: <Widget>[
+      TextButton(
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
+
+        child: const Text('Okay!'),
+      ),
+    ],
+  );
 }
