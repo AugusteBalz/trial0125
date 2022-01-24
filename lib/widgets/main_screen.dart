@@ -4,6 +4,8 @@ import 'package:trial0106/widgets/history.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:trial0106/widgets/mood/moodlog_list.dart';
 
+import 'buttons_to_log/button_widgets.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
