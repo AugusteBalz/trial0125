@@ -40,7 +40,7 @@ class MyAppFirst extends StatelessWidget {
 
               '/logmood2': (context) => const LogMoodScreenTwo(),
 
-              '/emotionSelectionScreen' : (context) => const EmotionSelectionScreen(),
+              //'/emotionSelectionScreen' : (context) => const EmotionSelectionScreen(),
             },
             theme: ThemeData(
                 // Define the default brightness and colors.

@@ -30,11 +30,14 @@ class _ButtonToLogEventState extends State<ButtonToLogEvent> {
       padding: EdgeInsets.all(20),
       child: InkWell(
         onTap: () async {
+          /*
           final value = await Navigator.pushNamed(context, '/emotionSelectionScreen');
 
           setState(() {
             const ShowHistory();
           });
+
+           */
         },
 
         child: Row(
