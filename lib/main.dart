@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:trial0106/globals/globals.dart';
 
-import 'package:trial0106/widgets/app_settings.dart';
-import 'package:trial0106/widgets/history.dart';
-import 'package:trial0106/widgets/main_screen.dart';
-import 'package:trial0106/widgets/mood/emotion_selection_screen.dart';
+import 'package:trial0106/screens/app_settings.dart';
+import 'package:trial0106/screens/history.dart';
+import 'package:trial0106/screens/main_screen.dart';
+import 'package:trial0106/screens/emotion_selection_screen.dart';
 import 'package:trial0106/widgets/mood/slider_widget.dart';
-import 'package:trial0106/widgets/mood/log_mood_screen_one.dart';
-import 'package:trial0106/widgets/mood/log_mood_screen_two.dart';
+import 'package:trial0106/screens/log_mood_screen_one.dart';
+import 'package:trial0106/screens/log_mood_screen_two.dart';
 
 import 'package:provider/provider.dart';
 
@@ -114,7 +114,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   //we save the userinput
 
-  int _selectedIndex = 0;
+
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   }
 
@@ -151,7 +151,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             //widget to select the moods from
             // UserMood(),
-            _widgetOptions.elementAt(_selectedIndex),
+            _widgetOptions.elementAt(selectedIndex),
           ],
         ),
       ),
@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
               // backgroundColor: Colors.white,
             ),
           ],
-          currentIndex: _selectedIndex,
+          currentIndex: selectedIndex,
           selectedItemColor: Colors.purple,
           unselectedItemColor: Colors.grey,
           onTap: _onItemTapped,

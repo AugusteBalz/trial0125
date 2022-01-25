@@ -7,7 +7,7 @@ import 'package:trial0106/models/mood_entries.dart';
 import 'package:trial0106/models/moods.dart';
 import 'package:trial0106/models/one_mood.dart';
 import 'package:trial0106/widgets/mood/display_multi_selection.dart';
-import 'package:trial0106/widgets/mood/emotion_selection_screen.dart';
+import 'package:trial0106/screens/emotion_selection_screen.dart';
 import 'package:trial0106/widgets/mood/moodlog_list.dart';
 import 'package:trial0106/widgets/mood/new_mood.dart';
 

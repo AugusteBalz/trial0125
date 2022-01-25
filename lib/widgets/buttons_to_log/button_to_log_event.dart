@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:trial0106/widgets/history.dart';
+import 'package:trial0106/screens/history.dart';
 
 class ButtonToLogEvent extends StatefulWidget {
   const ButtonToLogEvent({Key? key}) : super(key: key);

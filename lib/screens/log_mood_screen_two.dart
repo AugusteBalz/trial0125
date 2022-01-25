@@ -23,13 +23,7 @@ class _LogMoodScreenTwoState extends State<LogMoodScreenTwo> {
     });
   }
 
-  void _cleanMoodEntryList(){
 
-    setState(() {
-      //TODO: which should be cleaned?
-      moodEntryList.clear();
-    });
-  }
 
   // double currentSliderValue = 1;
 

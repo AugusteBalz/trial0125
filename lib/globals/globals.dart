@@ -15,6 +15,10 @@ int previousIndex = 0; //for theme toggling
 ThemeModel currentModel = ThemeModel();
 
 
+//--- for bottom navigation
+int selectedIndex = 0;
+//---
+
 MoodSelect joySelection = MoodSelect(moodP: "Joy", color: joyMoodColor, moodS: [
   "proud",
   "cheerful",
